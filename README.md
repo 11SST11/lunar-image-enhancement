@@ -12,7 +12,7 @@ This project provides tools for enhancing dark regions in lunar images using bot
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/lunar-image-enhancement.git
+git clone https://github.com/11SST11/lunar-image-enhancement.git
 cd lunar-image-enhancement
 ```
 
