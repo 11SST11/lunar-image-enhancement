@@ -8,8 +8,11 @@ from PIL import Image
 import io
 
 # Add the src directory to the path so we can import the lightweight model
-sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'src'))
-from lightweight_model import LightweightDestripeNet, demo
+current_dir = os.path.dirname(os.path.abspath(__file__))
+parent_dir = os.path.dirname(current_dir)
+sys.path.append(parent_dir)
+
+from src.lightweight_model import LightweightDestripeNet, demo
 
 def main():
     # Set page configuration
@@ -23,10 +26,10 @@ def main():
     st.sidebar.title("Lunar Image Enhancement")
     
     # Check if the demo image exists, if not create it
-    demo_image_path = "../results/enhancement_demo.png"
+    demo_image_path = os.path.join(parent_dir, "results", "enhancement_demo.png")
     if not os.path.exists(demo_image_path):
         # Create the results directory if it doesn't exist
-        os.makedirs("../results", exist_ok=True)
+        os.makedirs(os.path.dirname(demo_image_path), exist_ok=True)
         # Create a demo image
         demo()
     
